@@ -3,10 +3,11 @@ import axios from 'axios'
 
 function App() {
   const [players, setPlayers] = useState([]);
+  const API_BASE_URL = "https://football-server-ff3l.onrender.com"; 
 
   useEffect(()=>{
     // this is the bridge between frontend and backend 
-    axios.get('http://localhost:3000/api/players')
+    axios.get(`${API_BASE_URL}/api/players`)
     .then(res => {setPlayers(res.data)})
     .catch(err=> console.error("Error Fetching Data:", err));
   }, [])
